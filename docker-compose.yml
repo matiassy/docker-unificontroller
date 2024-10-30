@@ -8,12 +8,7 @@ services:
       - ./mongodb/data:/data/db
       - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 2048M
-          
+         
   unifi-network-application:
     image: lscr.io/linuxserver/unifi-network-application:8.1.127-ls42
     container_name: unifi-network-application
@@ -43,8 +38,3 @@ services:
       - 6789:6789 #optional
       - 5514:5514/udp #optional
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 2048M
